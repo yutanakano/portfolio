@@ -1,5 +1,7 @@
 import React, {useState} from "react"
 
+import Logo from "../../public/logo.svg"
+
 const Header = () => {
   const [toggle, setToggle] = useState(false)
 
@@ -8,7 +10,7 @@ const Header = () => {
       <nav className="navbar" role="navigation" aria-label="main navigation">
         <div className="navbar-brand">
           <a className="navbar-item" href="https://yutanakano.net/">
-            <img src="logo.svg" />
+            <img src={ Logo } />
           </a>
 
           <a
