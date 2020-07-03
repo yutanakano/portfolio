@@ -1,22 +1,75 @@
 import React from "react"
-import { Link } from "gatsby"
+import { Link, graphql } from "gatsby"
 
 import Layout from "../components/layout"
-import Image from "../components/image"
 import SEO from "../components/seo"
 
-const IndexPage = () => (
+import { MdFolderOpen, MdLabelOutline, MdUpdate } from 'react-icons/md';
+
+const IndexPage = props => (
   <Layout>
     <SEO title="Home" />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-      <Image />
+    <div className="columns is-multiline">
+      {props.data.allContentfulPost.edges.map(cards =>
+        <div key={cards.node.id} className="column is-multiline is-12-mobile is-4-tablet is-6-desktop">
+          <div className="card">
+            <div className="card-image">
+              <img className="image" src={cards.node.image.file.url} />
+            </div>
+            <div className="card-content">
+              <time><MdUpdate />{cards.node.createdAt}</time>
+              <div className="media">
+                <div className="media-content">
+                  <Link className="title is-size-5" to={`/posts/${cards.node.slug}`}>{cards.node.title}</Link>
+                </div>
+              </div>
+              <div className="column">
+                <div>
+                  <Link className="tag is-link" to='#'><MdFolderOpen />{cards.node.category.name}</Link>
+                </div>
+                <div>
+                  {cards.node.tags.map(tags =>
+                    <Link key={tags.id} className="tag is-multiline" to='#'><MdLabelOutline />{tags.name}</Link>
+                  )}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
-    <Link to="/page-2/">Go to page 2</Link> <br />
-    <Link to="/using-typescript/">Go to "Using TypeScript"</Link>
   </Layout>
 )
 
 export default IndexPage
+
+export const query = graphql`
+query {
+  allContentfulPost {
+    edges {
+      node {
+        id
+        title
+        slug
+        createdAt(formatString: "YYYY年MM月DD日")
+        category {
+          id
+          slug
+          name
+        }
+        tags {
+          id
+          slug
+          name
+        }
+        image {
+          id
+          file {
+            url
+          }
+        }
+      }
+    }
+  }
+}
+`
