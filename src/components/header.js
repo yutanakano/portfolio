@@ -1,6 +1,6 @@
 import React, {useState} from "react"
 
-import Logo from "../../public/logo.svg"
+import Logo from "../images/logo.svg"
 
 const Header = () => {
   const [toggle, setToggle] = useState(false)
