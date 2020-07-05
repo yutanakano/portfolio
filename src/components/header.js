@@ -10,7 +10,7 @@ const Header = () => {
       <nav className="navbar" role="navigation" aria-label="main navigation">
         <div className="navbar-brand">
           <a className="navbar-item" href="https://yutanakano.net/">
-            <img src={ Logo } />
+            <img src={ Logo } alt="永久機関" />
           </a>
 
           <a
