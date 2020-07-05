@@ -11,7 +11,7 @@ const PostPage =  props => (
     <SEO title={ props.data.contentfulPost.title } description={ props.data.contentfulPost.description } />
     <div className="section">
       <div className="container">
-        <img className="image" src={props.data.contentfulPost.image.file.url} />                    
+        <img className="image" src={props.data.contentfulPost.image.file.url} alt={props.data.contentfulPost.image.description} />
         <div className="card-content">
           <time><MdUpdate />{props.data.contentfulPost.createdAt}</time>
           <div className="media">
@@ -48,6 +48,7 @@ export const query = graphql`
       createdAt(formatString: "YYYY年MM月DD日")
       image {
         id
+        description
         file {
           url
         }

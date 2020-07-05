@@ -14,7 +14,7 @@ const IndexPage = props => (
         <div key={cards.node.id} className="column is-multiline is-12-mobile is-4-tablet is-6-desktop">
           <div className="card">
             <div className="card-image">
-              <img className="image" src={cards.node.image.file.url} />
+              <img className="image" src={cards.node.image.file.url} alt={cards.node.image.description} />
             </div>
             <div className="card-content">
               <time><MdUpdate />{cards.node.createdAt}</time>
@@ -64,6 +64,7 @@ query {
         }
         image {
           id
+          description
           file {
             url
           }
