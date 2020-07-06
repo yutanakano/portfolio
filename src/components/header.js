@@ -33,11 +33,11 @@ const Header = () => {
             </div>
 
             <div className="navbar-item">
-              <a href="https://in-field.dev" target="_blank">Request</a>
+              <a href="https://in-field.dev" rel="noopener" target="_blank">Request</a>
             </div>
 
             <div className="navbar-item">
-              <a href="https://peing.net/ja/yutanakano_net" target="_blank">Question</a>
+              <a href="https://peing.net/ja/yutanakano_net" rel="noopener" target="_blank">Question</a>
             </div>
           </div>
         </div>
