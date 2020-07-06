@@ -1,0 +1,5 @@
+[context.deploy-preview.environment]
+  GATSBY_ACTIVE_ENV = "development"
+[context.branch-deploy.environment]
+  GATSBY_ACTIVE_ENV = "development"
+  
