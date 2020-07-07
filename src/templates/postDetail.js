@@ -8,10 +8,10 @@ import { MdFolderOpen, MdLabelOutline, MdUpdate } from 'react-icons/md';
 
 const PostPage =  props => (
   <Layout>
-    <SEO title="Post" />
+    <SEO title={ props.data.contentfulPost.title } description={ props.data.contentfulPost.description } />
     <div className="section">
       <div className="container">
-        <img className="image" src={props.data.contentfulPost.image.file.url} />                    
+        <img className="image" src={props.data.contentfulPost.image.file.url} alt={props.data.contentfulPost.image.description} />
         <div className="card-content">
           <time><MdUpdate />{props.data.contentfulPost.createdAt}</time>
           <div className="media">
@@ -43,10 +43,12 @@ export const query = graphql`
   query ($slug: String) {
     contentfulPost(slug: {eq: $slug}) {
       id
+      description
       title
       createdAt(formatString: "YYYY年MM月DD日")
       image {
         id
+        description
         file {
           url
         }
