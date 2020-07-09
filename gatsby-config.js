@@ -4,7 +4,8 @@ module.exports = {
   siteMetadata: {
     title: `永久機関`,
     description: `元ネトゲ廃人の生存戦略ブログ`,
-    author: `@yutanakano`,
+    siteUrl: `https://yutanakano.net`,
+    author: `yutanakano_net`,
   },
   plugins: [
     `gatsby-plugin-sass`,
