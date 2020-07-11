@@ -5,8 +5,14 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 
 import { MdFolderOpen, MdLabelOutline, MdUpdate } from 'react-icons/md';
+import {
+  FacebookShareButton,
+  FacebookIcon,
+  TwitterShareButton,
+  TwitterIcon
+} from 'react-share';
 
-const PostPage =  props => (
+const PostPage = props => (
   <Layout>
     <SEO title={ props.data.contentfulPost.title } description={ props.data.contentfulPost.description } />
     <div className="section">
@@ -27,8 +33,16 @@ const PostPage =  props => (
             </div>
             <div>
               {props.data.contentfulPost.tags.map(tags => 
-                <p className="tag is-multiline" to='#'><MdLabelOutline />{tags.name}</p>
+                <p key={tags.id} className="tag is-multiline" to='#'><MdLabelOutline />{tags.name}</p>
               )}
+            </div>
+            <div>
+              <FacebookShareButton url={ `${props.data.site.siteMetadata.siteUrl}${props.uri}` }>
+                <FacebookIcon size={32} round />
+              </FacebookShareButton>
+              <TwitterShareButton title={ props.data.contentfulPost.title } via={ props.data.site.siteMetadata.author } url={ `${props.data.site.siteMetadata.siteUrl}${props.uri}` } >
+                <TwitterIcon size={32} round />
+              </TwitterShareButton>
             </div>
           </div>
         </div>
@@ -41,6 +55,12 @@ export default PostPage
 
 export const query = graphql`
   query ($slug: String) {
+    site {
+      siteMetadata {
+        siteUrl
+        author
+      }
+    }
     contentfulPost(slug: {eq: $slug}) {
       id
       description
