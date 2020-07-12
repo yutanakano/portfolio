@@ -10,7 +10,7 @@ const Header = () => {
       <nav className="navbar" role="navigation" aria-label="main navigation">
         <div className="navbar-brand">
           <a className="navbar-item" href="https://yutanakano.net/">
-            <img src={ Logo } alt="永久機関" />
+            <img className="logo" src={ Logo } alt="生存戦略しましょうか" />
           </a>
 
           <a
@@ -22,22 +22,17 @@ const Header = () => {
           >
             <span aria-hidden="true"></span>
             <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
           </a>
         </div>
 
         <div className={toggle ? "is-active" : "navbar-menu"}>
           <div className="navbar-start">
             <div className="navbar-item">
-              <a className="/">Home</a>
+              <a href="https://github.com/yutanakano">GitHub</a>
             </div>
 
             <div className="navbar-item">
-              <a href="https://in-field.dev" rel="noopener" target="_blank">Request</a>
-            </div>
-
-            <div className="navbar-item">
-              <a href="https://peing.net/ja/yutanakano_net" rel="noopener" target="_blank">Question</a>
+              <a href="https://twitter.com/yutanakano_net">Twitter</a>
             </div>
           </div>
         </div>
