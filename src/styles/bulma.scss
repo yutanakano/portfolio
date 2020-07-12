@@ -4,3 +4,7 @@
 //$title-color: #ff0000;
 
 @import "~bulma/bulma.sass";
+
+.navbar-item img.logo {
+  max-height: 3rem;
+}
