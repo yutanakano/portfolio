@@ -28,11 +28,11 @@ const Header = () => {
         <div className={toggle ? "is-active" : "navbar-menu"}>
           <div className="navbar-start">
             <div className="navbar-item">
-              <a href="/">Home</a>
+              <a href="https://github.com/yutanakano">GitHub</a>
             </div>
 
             <div className="navbar-item">
-              <a href="https://peing.net/ja/yutanakano_net" rel="noopener" target="_blank">Question</a>
+              <a href="https://twitter.com/yutanakano_net">Twitter</a>
             </div>
           </div>
         </div>
