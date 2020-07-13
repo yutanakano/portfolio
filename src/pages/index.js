@@ -8,7 +8,7 @@ import { MdFolderOpen, MdLabelOutline, MdUpdate } from 'react-icons/md';
 
 const IndexPage = props => (
   <Layout>
-    <SEO />
+    <SEO title="生存戦略しましょうか"/>
     <div className="columns is-multiline">
       {props.data.allContentfulPost.edges.map(cards =>
         <div key={cards.node.id} className="column is-multiline is-12-mobile is-4-tablet is-6-desktop">
