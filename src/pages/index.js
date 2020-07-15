@@ -23,15 +23,13 @@ const IndexPage = props => (
                   <Link className="title is-size-5" to={`/posts/${cards.node.slug}`}>{cards.node.title}</Link>
                 </div>
               </div>
-              <div className="column">
+              <div className="columns is-multiline">
                 <div>
-                  <Link className="tag is-link" to='#'><MdFolderOpen />{cards.node.category.name}</Link>
+                  <Link className="column tag is-link" to='#'><MdFolderOpen />{cards.node.category.name}</Link>
                 </div>
-                <div>
-                  {cards.node.tags.map(tags =>
-                    <Link key={tags.id} className="tag is-multiline" to='#'><MdLabelOutline />{tags.name}</Link>
-                  )}
-                </div>
+                {cards.node.tags.map(tags =>
+                  <Link className="column tag" key={tags.id} to='#'><MdLabelOutline />{tags.name}</Link>
+                )}
               </div>
             </div>
           </div>
