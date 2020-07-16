@@ -16,7 +16,6 @@ const PostPage = props => (
   <Layout>
     <SEO title={ props.data.contentfulPost.title } description={ props.data.contentfulPost.description } />
     <div className="section">
-      {console.log(props)}
       <div className="container">
         <img className="image" src={props.data.contentfulPost.image.file.url} alt={props.data.contentfulPost.image.description} />
         <div className="card-content">
@@ -58,7 +57,6 @@ export const query = graphql`
   query ($slug: String) {
     site {
       siteMetadata {
-        siteUrl
         author
       }
     }
