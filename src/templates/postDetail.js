@@ -16,6 +16,7 @@ const PostPage = props => (
   <Layout>
     <SEO title={ props.data.contentfulPost.title } description={ props.data.contentfulPost.description } />
     <div className="section">
+      {console.log(props)}
       <div className="container">
         <img className="image" src={props.data.contentfulPost.image.file.url} alt={props.data.contentfulPost.image.description} />
         <div className="card-content">
@@ -38,10 +39,10 @@ const PostPage = props => (
             </div>
           </div>
           <div>
-            <FacebookShareButton url={ `${props.data.site.siteMetadata.siteUrl}${props.uri}` }>
+            <FacebookShareButton url={ props.location.href }>
               <FacebookIcon size={32} round />
             </FacebookShareButton>
-            <TwitterShareButton title={ props.data.contentfulPost.title } via={ props.data.site.siteMetadata.author } url={ `${props.data.site.siteMetadata.siteUrl}${props.uri}` } >
+            <TwitterShareButton title={ props.data.contentfulPost.title } via={ props.data.site.siteMetadata.author } url={ props.location.href } >
               <TwitterIcon size={32} round />
             </TwitterShareButton>
           </div>
