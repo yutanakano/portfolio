@@ -1,5 +1,5 @@
 import React from "react"
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -44,6 +44,14 @@ const PostPage = props => (
             <TwitterShareButton title={ props.data.contentfulPost.title } via={ props.data.site.siteMetadata.author } url={ props.location.href } >
               <TwitterIcon size={32} round />
             </TwitterShareButton>
+          </div>
+        </div>
+        <div className="columns is-multiline">
+          <div className="column">
+            { props.pageContext.previous ? <Link className="title is-size-5" to={`/posts/${props.pageContext.previous.slug}`}>{props.pageContext.previous.title}</Link> : null }
+          </div>
+          <div className="column">
+            { props.pageContext.next ? <Link className="title is-size-5" to={`/posts/${props.pageContext.next.slug}`}>{props.pageContext.next.title}</Link> : null }
           </div>
         </div>
       </div>

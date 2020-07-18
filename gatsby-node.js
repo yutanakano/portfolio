@@ -13,8 +13,16 @@ exports.createPages = async({graphql, actions}) => {
   query {
     allContentfulPost {
       edges {
+        previous {
+          slug
+          title
+        }
         node {
           slug
+        }
+        next {
+          slug
+          title
         }
       }
     }
@@ -26,7 +34,9 @@ exports.createPages = async({graphql, actions}) => {
       component: blogTemplate,
       path: `/posts/${edge.node.slug}`,
       context: {
-        slug: edge.node.slug
+        previous: edge.previous,
+        slug: edge.node.slug,
+        next: edge.next,
       }
     })
   })
