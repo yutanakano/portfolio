@@ -27,23 +27,23 @@ const PostPage = props => (
           </div>
           <article dangerouslySetInnerHTML={{__html: props.data.contentfulPost.content.childMarkdownRemark.html}}>
           </article>
-          <div className="column">
+          <div className="columns is-multiline">
             <div>
-              <p className="tag is-link" to='#'><MdFolderOpen />{props.data.contentfulPost.category.name}</p>
+              <p className="column tag is-link" to='#'><MdFolderOpen />{props.data.contentfulPost.category.name}</p>
             </div>
             <div>
               {props.data.contentfulPost.tags.map(tags => 
-                <p key={tags.id} className="tag is-multiline" to='#'><MdLabelOutline />{tags.name}</p>
+                <p key={tags.id} className="column tag" to='#'><MdLabelOutline />{tags.name}</p>
               )}
             </div>
-            <div>
-              <FacebookShareButton url={ `${props.data.site.siteMetadata.siteUrl}${props.uri}` }>
-                <FacebookIcon size={32} round />
-              </FacebookShareButton>
-              <TwitterShareButton title={ props.data.contentfulPost.title } via={ props.data.site.siteMetadata.author } url={ `${props.data.site.siteMetadata.siteUrl}${props.uri}` } >
-                <TwitterIcon size={32} round />
-              </TwitterShareButton>
-            </div>
+          </div>
+          <div>
+            <FacebookShareButton url={ props.location.href }>
+              <FacebookIcon size={32} round />
+            </FacebookShareButton>
+            <TwitterShareButton title={ props.data.contentfulPost.title } via={ props.data.site.siteMetadata.author } url={ props.location.href } >
+              <TwitterIcon size={32} round />
+            </TwitterShareButton>
           </div>
         </div>
       </div>
@@ -57,7 +57,6 @@ export const query = graphql`
   query ($slug: String) {
     site {
       siteMetadata {
-        siteUrl
         author
       }
     }

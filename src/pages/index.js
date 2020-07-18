@@ -8,7 +8,7 @@ import { MdFolderOpen, MdLabelOutline, MdUpdate } from 'react-icons/md';
 
 const IndexPage = props => (
   <Layout>
-    <SEO title="Home"/>
+    <SEO title="生存戦略しましょうか"/>
     <div className="columns is-multiline">
       {props.data.allContentfulPost.edges.map(cards =>
         <div key={cards.node.id} className="column is-multiline is-12-mobile is-4-tablet is-6-desktop">
@@ -23,15 +23,13 @@ const IndexPage = props => (
                   <Link className="title is-size-5" to={`/posts/${cards.node.slug}`}>{cards.node.title}</Link>
                 </div>
               </div>
-              <div className="column">
+              <div className="columns is-multiline">
                 <div>
-                  <Link className="tag is-link" to='#'><MdFolderOpen />{cards.node.category.name}</Link>
+                  <Link className="column tag is-link" to='#'><MdFolderOpen />{cards.node.category.name}</Link>
                 </div>
-                <div>
-                  {cards.node.tags.map(tags =>
-                    <Link key={tags.id} className="tag is-multiline" to='#'><MdLabelOutline />{tags.name}</Link>
-                  )}
-                </div>
+                {cards.node.tags.map(tags =>
+                  <Link className="column tag" key={tags.id} to='#'><MdLabelOutline />{tags.name}</Link>
+                )}
               </div>
             </div>
           </div>

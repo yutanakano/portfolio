@@ -3,7 +3,7 @@ require('dotenv').config()
 module.exports = {
   siteMetadata: {
     title: `生存戦略しましょうか`,
-    description: `元ネトゲ廃人の生存戦略ログ`,
+    description: `元ネトゲ廃人の生存戦略記録`,
     siteUrl: `https://yutanakano.net`,
     author: `yutanakano_net`,
   },
